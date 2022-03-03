@@ -4,11 +4,11 @@
     <parent>
         <groupId>fish.focus.uvms.maven</groupId>
         <artifactId>uvms-pom</artifactId>
-        <version>3.6</version>
+        <version>3.16</version>
         <relativePath />
     </parent>
     
-    <groupId>se.havochvatten.vessel.proxy.cache</groupId>
+    <groupId>se.havochvatten.unionvms.vessel.proxy.cache</groupId>
     <artifactId>hav-vessel-proxy-cache</artifactId>
     <version>3.0.25-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -16,8 +16,8 @@
     <name>${project.artifactId}</name>
     
     <properties>
-        <asset.model.version>6.8.12</asset.model.version>
-        <uvms.common.version>4.1.9</uvms.common.version>
+        <asset.model.version>6.8.24</asset.model.version>
+        <uvms.common.version>4.1.12</uvms.common.version>
 
         <vessel.client.version>2.1.42</vessel.client.version>
         <vessel.comp.client.version>2.0.3</vessel.comp.client.version>
@@ -47,18 +47,18 @@
             <version>3.6</version>
         </dependency>
         <dependency>
-            <groupId>eu.europa.ec.fisheries.uvms.asset</groupId>
+            <groupId>fish.focus.uvms.asset</groupId>
             <artifactId>asset-client</artifactId>
             <version>${asset.model.version}</version>
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>eu.europa.ec.fisheries.uvms.commons</groupId>
+            <groupId>fish.focus.uvms.commons</groupId>
             <artifactId>uvms-commons-message</artifactId>
             <version>${uvms.common.version}</version>
         </dependency>
         <dependency>
-            <groupId>eu.europa.ec.fisheries.uvms.commons</groupId>
+            <groupId>fish.focus.uvms.commons</groupId>
             <artifactId>uvms-commons-date</artifactId>
             <version>${uvms.common.version}</version>
         </dependency>
@@ -105,8 +105,8 @@
     </dependencies>
 
     <scm>
-        <connection>scm:git:git@github.com:UnionVMS/UVMS-AssetModule-PROXY-HAV-CACHE.git</connection>
-        <tag>hav-vessel-proxy-cache-3.0.2</tag>
+        <connection>scm:git:git@github.com:FocusFish/UVMS-AssetModule-PROXY-HAV-CACHE.git</connection>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
