@@ -44,7 +44,7 @@
             <artifactId>uvms-pom-java11-deps</artifactId>
             <type>pom</type>
             <scope>provided</scope>
-            <version>3.16</version>
+            <version>3.18</version>
         </dependency>
         <dependency>
             <groupId>fish.focus.uvms.asset</groupId>
