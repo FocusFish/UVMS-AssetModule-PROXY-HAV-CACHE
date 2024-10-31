@@ -11,6 +11,7 @@ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more d
 copy of the GNU General Public License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses/>.
  */
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,7 @@ import org.mockito.MockitoAnnotations;
 import se.havochvatten.unionvms.vessel.proxy.cache.bean.ParameterServiceBean;
 import se.havochvatten.unionvms.vessel.proxy.cache.bean.VesselServiceBean;
 import se.havochvatten.unionvms.vessel.proxy.cache.constant.ParameterKey;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,15 +35,20 @@ public class TestVesselServiceBean {
     @Mock
     private ParameterServiceBean parameterService;
 
-    private String nationsAsStringWithSpaces = " SWE , DN K, ESP , FIN";
-    private List<String> nations = Arrays.asList("SWE", "DNK", "ESP" , "FIN");
+    private final String nationsAsStringWithSpaces = " SWE , DN K, ESP , FIN";
+    private final List<String> nations = Arrays.asList("SWE", "DNK", "ESP" , "FIN");
 
+    private AutoCloseable openedMocks;
 
     @Before
     public void setup(){
-        MockitoAnnotations.initMocks(this);
+        openedMocks = MockitoAnnotations.openMocks(this);
         when(parameterService.getParameterValue(ParameterKey.NATIONAL_VESSEL_NATIONS)).thenReturn(nationsAsStringWithSpaces);
+    }
 
+    @After
+    public void closeMocks() throws Exception {
+        openedMocks.close();
     }
 
     @Test
@@ -49,5 +56,4 @@ public class TestVesselServiceBean {
         List<String> nationsFromDatabase = vesselServiceBean.getNationsFromDatabase();
         Assert.assertArrayEquals(nations.toArray(), nationsFromDatabase.toArray());
     }
-
 }
